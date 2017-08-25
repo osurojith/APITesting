@@ -1,5 +1,6 @@
 package com.Test;
 
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class TestRunner {
-/*	@DataProvider(name="seasonsAndNumberOfRaces")
+	@DataProvider(name="seasonsAndNumberOfRaces")
 	public Object[][] createTestDataRecords() {
 	    return new Object[][] {
 	        {"2017",20},
@@ -32,8 +33,8 @@ public class TestRunner {
 	        body("MRData.CircuitTable.Circuits.circuitId",hasSize(numberOfRaces));
 	}
 	
-	@Test
-	public void checkIP() {
+	/*@Test
+	public void checkIP1() {
 	        
 	    String IP = "albert_park";
 	   
@@ -44,7 +45,7 @@ public class TestRunner {
 	    then().
 	        assertThat().
 	        body("MRData.CircuitTable.Circuits.circuitId[0]",equalTo(IP));
-	}*/
+	}
 	 @Test
 		public void postExample()
 		{
@@ -64,4 +65,20 @@ public class TestRunner {
 	    	System.out.println("xxxxxx"+zzz);
 	    	Assert.assertEquals(zzz,"successfull");
 		}
+	 
+	 @Test
+		public void checkIP() {
+		        
+		    String IP = "albert_park";
+		   
+		    given().
+		       // pathParam("raceSeason",season).
+		    when().
+		        get("http://ergast.com/api/f1/2017/circuits.json").
+		    then().
+		        assertThat().
+		        body("MRData.CircuitTable.Circuits.circuitId[0]",equalTo(IP));
+		   
+		    }
+	*/
 }
